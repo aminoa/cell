@@ -157,7 +157,9 @@ void Init_Graph()
 // }
 int main(void)
 {
-	int desired[1008] = {0, 0, 0, 8, 0, 0, 0, 0, 256, 512, 0, 0, 0, 0, 0, 0, 1, 0, 0, 8, 0, 0, 0, 0, 0, 512, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 256, 512, 0, 2048, 0, 0, 0, 0, 0, 0, 4, 8, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 8192, 0, 0, 1, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 4096, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 128, 0, 0, 0, 2048, 0, 0, 0, 0, 1, 0, 0, 8, 0, 0, 0, 0, 256, 0, 0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 8, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 32768, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 32768, 0, 0, 0, 8, 16, 0, 0, 0, 0, 0, 0, 0, 0, 8192, 0, 0, 0, 0, 0, 0, 0, 32, 0, 128, 0, 512, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1024, 0, 4096, 0, 16384, 0, 0, 0, 0, 0, 16, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 32768, 1, 0, 0, 0, 0, 0, 0, 0, 256, 0, 0, 0, 0, 0, 0, 32768, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4096, 0, 16384, 32768, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 1024, 0, 0, 8192, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 256, 0, 0, 2048, 0, 0, 0, 32768, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 32768, 0, 2, 0, 0, 16, 0, 0, 0, 0, 0, 0, 2048, 0, 0, 0, 0, 1, 0, 0, 8, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 64, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 8, 0, 0, 0, 0, 0, 0, 0, 2048, 0, 0, 0, 0, 1, 2, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 1024, 0, 0, 0, 16384, 0, 0, 2, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32768, 1, 0, 0, 0, 0, 32, 0, 0, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 0, 512, 0, 0, 0, 0, 0, 32768, 0, 0, 0, 0, 0, 0, 0, 128, 256, 0, 0, 0, 0, 8192, 0, 0, 1, 0, 0, 0, 0, 32, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 1, 2, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 32, 0, 0, 0, 0, 0, 2048, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 2048, 4096, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 32768, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 2048, 0, 0, 16384, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 16384, 0, 0, 2, 0, 0, 0, 0, 64, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 64, 0, 0, 512, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 512, 0, 0, 0, 8192, 0, 0, 0, 0, 0, 8, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 16384, 0, 0, 2, 0, 0, 16, 0, 0, 0, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 1024, 0, 4096, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8192, 16384, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2048, 0, 8192, 0, 0, 0, 2, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4096, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, 128, 0, 0, 1024, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 256, 0, 0, 0, 0, 0, 0, 32768, 1, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 16384, 0, 1, 0, 0, 8, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 1024, 0, 0, 8192, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 256, 0, 0, 0, 4096, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1024, 0, 0, 8192, 0, 0, 1, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 4096, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 2048, 0, 0, 0, 32768, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 2048, 0, 0, 0, 32768, 0, 2, 0, 8, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 128, 256, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 8, 0, 0, 0, 0, 0, 512, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 32768, 0, 0, 0, 0, 0, 0, 64, 0, 256, 512, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	printf("Starting homebrew");
+	// int desired[16] = { 0, 0, 0, 8, 0, 0, 0, 0, 256, 512, 0, 0, 0, 0, 0, 0 };
+	int desired[1008] = {0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2048, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8192, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8192, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 512, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4096, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8192, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32768, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4096, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 512, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2048, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16384, 0, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32768, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8192, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4096, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8192, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 512, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32768, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 512, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16384, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32768, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8192, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16384, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32768, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4096, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16384, 0, 0, 0, 0, 0, 0, 0, 0, 0, 256, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 	ioPadInit(7);
 	ioPadSetSensorMode(0,1);
@@ -169,15 +171,37 @@ int main(void)
 	int x_center = 0;
 	int x_L3,y_L3, x_R3, y_R3;
 
-	int count = 0; 
+	int count = -16 * 8; 
 	
-	void* controller_check = memalign(0x10, 5008);
-	memset(controller_check, 0x00, 5008);
-	 
+	void* controller_check = memalign(0x10, 1008);
+	memset(controller_check, 0x00, 1008);
+
+	// allocate an integer array separate from controller check
+	int* controller_memory = memalign(0x10, 1008);
+	controller_memory[0] = 0;
+	controller_memory[1] = 0;
+	controller_memory[2] = 0;
+	controller_memory[3] = 8;
+	controller_memory[4] = 0;
+	controller_memory[5] = 0;
+	controller_memory[6] = 0;
+	controller_memory[7] = 0;
+	controller_memory[8] = 256;
+	controller_memory[9] = 512;
+	controller_memory[10] = 0;
+	controller_memory[11] = 0;
+	controller_memory[12] = 0;
+	controller_memory[13] = 0;
+	controller_memory[14] = 0;
+	controller_memory[15] = 0;
+
+
+
 	// init controller memroy to be all 0
 	// int controller_memory[5008] = {0};
+	printf("DualSense initialization, compare against good match ...");
 
-	while(count < 1004) {
+	while(count < 1008) {
 		tiny3d_Flip();
 		cls();
 		ps3pad_read();
@@ -185,12 +209,12 @@ int main(void)
 		SetFontAutoCenter(1);
 		SetFontSize(20,20);
 		SetFontColor(0xffffffff, 0x0);
-		DrawString(x, y, "Hmm... I'm trying to poll these inputs right...");
+		DrawString(x, y, "Hmm... I'm trying to poll these inputs right....");
 
+		printf("X= %d\n", count);		
 		// printf("X= %d\n", paddata.SENSOR_X);
-
 		SetFontAutoCenter(0);	
-		
+
 		DrawFormatString(50, 100 , "X= %rd", paddata.SENSOR_X);
 		DrawFormatString(50, 130 , "Y= %d", paddata.SENSOR_Y);
 		DrawFormatString(50, 160, "Z= %d", paddata.SENSOR_Z);
@@ -321,24 +345,48 @@ int main(void)
 		int button_left = old_pad & BUTTON_LEFT;
 
 		// now check if the buttons correspond to the desired 
-
 		// printf(controller_memory[0]);
-		// if (button_r3 != desired[count] || button_l3 != desired[count+1] || button_r2 != desired[count+2] || button_l2 != desired[count+3] || button_r1 != desired[count+4] || button_l1 != desired[count+5] || button_cross != desired[count+6] || button_circle != desired[count+7] || button_square != desired[count+8] || button_triangle != desired[count+9] || button_start != desired[count+10] || button_select != desired[count+11] || button_up != desired[count+12] || button_down != desired[count+13] || button_left != desired[count+14] || button_right != desired[count+15]) {
-			// printf("ah, didn't quite match me, try again!");
-			// return 0;
-		// }
+		// printf(desired[count]);
+
+		if (count == -16)
+		{
+			printf("And..... GO! \n");
+		}
+
+		if (count >= 0)
+		{
+			if (button_l2 != controller_memory[count] || 
+			button_r2 != controller_memory[count + 1] || 
+			button_l1 != controller_memory[count + 2] ||	
+			button_r1 != controller_memory[count + 3] ||
+			button_triangle != controller_memory[count + 4] ||
+			button_circle != controller_memory[count + 5] ||
+			button_cross != controller_memory[count + 6] ||
+			button_square != controller_memory[count + 7] ||
+			button_select != controller_memory[count + 8] ||
+			button_l3 != controller_memory[count + 9] ||
+			button_r3 != controller_memory[count + 10] ||
+			button_start != controller_memory[count + 11] ||
+			button_up != controller_memory[count + 12] ||
+			button_right != controller_memory[count + 13] ||
+			button_down != controller_memory[count + 14] ||
+			button_left != controller_memory[count + 15])
+			{
+				printf("ah you did not catch me, good luck next time! \n");		
+				sleep(1);
+				return 0;
+			}
+		}
 
 		// draw these numbers to the framebuffer
 
 		count += 16;
-		printf("Am I alive?");
-		printf("Cycle %d", count);
 		sleep(1);
 		// 16 bits, compare two shorts while the controller polls, oh and write this text to the framebuffer! If you diverge, auto fail. 
 		// if you succeed, print a success message and crash the program. From here, get a dump of the VRAM and then use that dump as the way to decrypt some value
 	}
 
-	printf("nice job, you survived. when i look at myself (i'm an rsx btw), i feel like the output in my texture buffer; i think it's important, don't you? :)");
+	printf("nice job; when i look at myself (i'm an rsx btw), i feel like the output in my texture buffer; it's important. use it to reach the end :)");
 
 	return 0;
 }

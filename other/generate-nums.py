@@ -4,14 +4,13 @@ import random
 number_list = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768]
 
 # Initialize the result list with 0s
-result_list = [0] * 1004
+result_list = [0] * 1008
 
 # Generate 5004 bytes in groups of 16
-for i in range(0, len(result_list) - 16, 16):
-    # random_numbers = random.sample(number_list, 3)  # Choose three random numbers
-    random_indices = random.sample(range(16), 3)  # Choose three random indices within the group
+for i in range(0, len(result_list), 16):
+    random_indices = random.sample(range(16), 1)  # Choose three random indices within the group
     print(random_indices)
-    for j in range(3):
+    for j in range(1):
         result_list[i + random_indices[j]] = number_list[random_indices[j]]
         print(result_list[i + random_indices[j]])
 
