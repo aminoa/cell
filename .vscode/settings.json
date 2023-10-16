@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "pad.h": "c"
+        "pad.h": "c",
+        "ps_ttf_bin.h": "c"
     }
 }

@@ -1,3 +1,4 @@
+controller_memory[0] = 0;
 controller_memory[1] = 0;
 controller_memory[2] = 0;
 controller_memory[3] = 8;

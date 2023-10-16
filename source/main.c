@@ -20,6 +20,7 @@
 #include "PS_ttf_bin.h"
 #include "pad.h"
 
+
 //*******************************************************
 //GUI
 //*******************************************************
@@ -177,9 +178,10 @@ int main(void)
 
 	// allocate an integer array separate from controller check
 	int* controller_memory = memalign(0x10, 1008);
+	controller_memory[0] = 0;
 	controller_memory[1] = 0;
 	controller_memory[2] = 0;
-	controller_memory[3] = 8;
+	controller_memory[3] = 8; //R1
 	controller_memory[4] = 0;
 	controller_memory[5] = 0;
 	controller_memory[6] = 0;
@@ -192,7 +194,7 @@ int main(void)
 	controller_memory[13] = 0;
 	controller_memory[14] = 0;
 	controller_memory[15] = 0;
-	controller_memory[16] = 1;
+	controller_memory[16] = 1; //L2
 	controller_memory[17] = 0;
 	controller_memory[18] = 0;
 	controller_memory[19] = 0;
@@ -218,7 +220,7 @@ int main(void)
 	controller_memory[39] = 0;
 	controller_memory[40] = 0;
 	controller_memory[41] = 0;
-	controller_memory[42] = 1024;
+	controller_memory[42] = 1024; //R3
 	controller_memory[43] = 0;
 	controller_memory[44] = 0;
 	controller_memory[45] = 0;
@@ -234,7 +236,7 @@ int main(void)
 	controller_memory[55] = 0;
 	controller_memory[56] = 0;
 	controller_memory[57] = 0;
-	controller_memory[58] = 1024;
+	controller_memory[58] = 1024; // 
 	controller_memory[59] = 0;
 	controller_memory[60] = 0;
 	controller_memory[61] = 0;
@@ -1187,9 +1189,11 @@ int main(void)
 
 	// init controller memroy to be all 0
 	// int controller_memory[5008] = {0};
-	printf("DualSense initialization, compare against good match ...");
+	printf("Let's check if your controller works...\n");
+	
+	// write into a separate array, maybe multiplied by 2 idk, then make a savestate, pray that they are binary equiv
 
-	while(count < 32) {
+	while(count < 1000) {
 		tiny3d_Flip();
 		cls();
 		ps3pad_read();
@@ -1199,14 +1203,9 @@ int main(void)
 		SetFontColor(0xffffffff, 0x0);
 		DrawString(x, y, "Hmm... I'm trying to poll these inputs right....");
 
-		printf("X= %d\n", count);		
+		printf("Count = %d\n", count);		
 		// printf("X= %d\n", paddata.SENSOR_X);
 		SetFontAutoCenter(0);	
-
-		DrawFormatString(50, 100 , "X= %rd", paddata.SENSOR_X);
-		DrawFormatString(50, 130 , "Y= %d", paddata.SENSOR_Y);
-		DrawFormatString(50, 160, "Z= %d", paddata.SENSOR_Z);
-		DrawFormatString(50, 190, "G= %d", paddata.SENSOR_G);
 		
 		if (old_pad  & BUTTON_L3 && old_pad  & BUTTON_R2) actparam.large_motor = paddata.PRE_R2; else actparam.large_motor = 0;
 		if (old_pad  & BUTTON_L3 && old_pad  & BUTTON_R3) actparam.small_motor = 1; else actparam.small_motor = 0;
@@ -1343,6 +1342,14 @@ int main(void)
 
 		if (count >= 0)
 		{
+			if (count >= 0)
+			{
+				DrawFormatString(50, 100 , "X= %rd", paddata.SENSOR_X);
+				DrawFormatString(50, 130 , "Y= %d", paddata.SENSOR_Y);
+				DrawFormatString(50, 160, "Z= %d", paddata.SENSOR_Z);
+				DrawFormatString(50, 190, "G= %d", paddata.SENSOR_G);
+			}
+
 			if (button_l2 != controller_memory[count] || 
 			button_r2 != controller_memory[count + 1] || 
 			button_l1 != controller_memory[count + 2] ||	
@@ -1364,18 +1371,81 @@ int main(void)
 				sleep(1);
 				return 0;
 			}
+
 		}
 
-		// draw these numbers to the framebuffer
+		controller_memory[count] = button_l2 * 2;
+		controller_memory[count + 1] = button_r2 * 2;
+		controller_memory[count + 2] = button_l1 * 2;
+		controller_memory[count + 3] = button_r1 * 2;
+		controller_memory[count + 4] = button_triangle * 2;
+		controller_memory[count + 5] = button_circle * 2;
+		controller_memory[count + 6] = button_cross * 2;
+		controller_memory[count + 7] = button_square * 2;
+		controller_memory[count + 8] = button_select * 2;
+		controller_memory[count + 9] = button_l3 * 2;
+		controller_memory[count + 10] = button_r3 * 2;
+		controller_memory[count + 11] = button_start * 2;
+		controller_memory[count + 12] = button_up * 2;
+		controller_memory[count + 13] = button_right * 2;
+		controller_memory[count + 14] = button_down * 2;
+		controller_memory[count + 15] = button_left * 2;
+
+		if (count == 96)
+		{
+			printf("The development kit, 'Linux (for PlayStation 2) release 1.0', is geared towards the Linux development community and will allow full access to the PlayStation 2 runtime environment and systems manuals. The kit includes an internal 40G-byte hard disk drive for the console, Ethernet adapter, Linux kernel 2.2.1, computer monitor adapter, USB keyboard and mouse and other software");
+		}
+		if (count == 160)
+		{
+			printf("As the global leader our mission at Sony Computer Entertainment is to create products that truly Inspire and entertain fans around the world and it's really amazing to witness such enthusiasm for our new platform so now on to PlayStation 3. It is powered by cell along with our partners IBM and Toshiba we have invested billions of dollars and hundreds of thousands of man-hours in creating a cell processor; it's a processor with power ritling that of super computers but is uniquely designed to support massive data processing required for Digital entertainment and other HD intensive applications. - Kaz Hirai");
+		}
+		if (count == 240)
+		{
+			printf("Air Force Research Laboratory's ribbon cutting will be a significant event in the history of supercomputing. Condor is a 500 TFLOPS supercomputer. Such capability exceeds any other interactive supercomputer currently used by the Department of Defense (a total of 84 dual, six core server processors function as headnodes, each coordinating the operation of 22 PS3's, to drive the Condor). The total cost of the Condor system was approximately $2 million, which is a cost savings of between 10 and 20 times for the equivalent capability - Mark Barnell");
+		}
+		if (count == 320)
+		{
+			printf("Now, let me first say that Homebrew is sometimes a misused term and so for the purposes of this answer I will exclude pirates and hackers with illegal intentions from the definition. I fully support the notion of game development at home using powerful tools available to anyone. We were one of the first companies to recognize this in 1996 with Net Yaroze on PS1. It's a vital, crucial aspect of the future growth of our industry and links well to the subtext of my earlier answers. When I started making games on the Commodore 64 in the 1980's, the way I learned to make games was by re-writing games that appeared in magazines. Really the best bit about a C64 was when you turned it on it said Ready with a flashing cursor - inviting you to experiment. You'd spend hours typing in the code, line-by-line, and then countless hours debugging it to make it work and then you'd realise the game was rubbish after all that effort! The next step was to re-write aspects of the game to change the graphics, the sound, the control system or the speed of the gameplay until you'd created something completely new. I might share this with a few friends but not for commercial gain at that time. But the process itself was invaluable in helping me learn to program, to design graphics, animations or sounds and was really the way I opened doors to get into the industry. Now, those industry doors are largely closed by the nature of the video game systems themselves being closed. So, if we can make certain aspects of PS3 open to the independent game development community, we will do our industry a service by providing opportunities for the next generation of creative and technical talent. Now having said all that, we still have to protect the investment and intellectual property rights of the industry so we will always seek the best ways to secure and protect our devices from piracy and unauthorized hacking that damages the business - Phil Harison");
+		}
+		if (count == 400)
+		{
+			printf("Thank you for choosing Yellow Dog Linux! When Sony Computer Entertainment designed the PLAYSTATION®3 (PS3™), it was fully intended that you, a PS3 owner could play games, watch movies, view photos, listen to music, and run a full­featured Linux operating system that transforms your PS3 into a home computer. Yellow Dog Linux for PS3 combines a simple to use graphical installer with leading­edge components and a foundation of must­have home, office, and server applications. Everything you need to browse the web, check and compose email, do your school homework or take your office work home is included with more than 2000 packages on the Install DVD.");
+		}
+		if (count == 480)
+		{
+			printf("I have read/write access to the entire system memory, and HV level access to the processor. In other words, I have hacked the PS3. The rest is just software. And reversing. I have a lot of reversing ahead of me, as I now have dumps of LV0 and LV1. I've also dumped the NAND without removing it or a modchip. 3 years, 2 months, 11 days...thats a pretty secure system. Took 5 weeks, 3 in Boston, 2 here, very simple hardware cleverly applied, and some not so simple software. As far as the exploit goes, I'm not revealing it yet. The theory isn't really patchable, but they can make implementations much harder. Also, for obvious reasons I can't post dumps. I'm hoping to find the decryption keys and post them, but they may be embedded in hardware. Hopefully keys are setup like the iPhone's KBAG - Geohot");
+		}
+		if (count == 560)
+		{
+			printf("PS3 Firmware (v3.21) Update: The next system software update for the PlayStation 3 (PS3) system will be released on April 1, 2010 (JST), and will disable the “Install Other OS” feature that was available on the PS3 systems prior to the current slimmer models, launched in September 2009. This feature enabled users to install an operating system, but due to security concerns, Sony Computer Entertainment will remove the functionality through the 3.21 system software update. In addition, disabling the “Other OS” feature will help ensure that PS3 owners will continue to have access to the broad range of gaming and entertainment content from SCE and its content partners on a more secure system. Consumers and organizations that currently use the “Other OS” feature can choose not to upgrade their PS3 systems.");
+		}
+		if (count == 640)
+		{
+			printf("Defendants George Hotz, “Bushing,” Hector Cantero, Sven Peter and “Segher” are computer hackers. Working individually and in concert with one another, Defendants recently bypassed effective technological protection measures (“TPMs”) employed by plaintiff Sony Computer Entertainment America LLP (“SCEA”) in its proprietary PlayStation®3 computer entertainment system (“PS3 System”). Through the Internet, Defendants are distributing software, tools and instructions (collectively, “Circumvention Devices”) that circumvent the TPMs in the PS3 System and facilitate the counterfeiting of video games. Already, pirated video games are being packaged and distributed with these circumvention devices. SCEA moves ex parte to put an immediate halt to the ongoing distribution of these illegal Circumvention Devices and avoid irreparable harm to SCEA and to other video game software developers stemming from video game piracy - Richard Seeborg");
+		}
+		if (count == 720)
+		{
+			printf("Sony is attempting to use the DMCA to deny computer scientists the right to speak about technical details of certain Sony products. This assault on free speech is intolerable and must not go unanswered. As a computer scientist, I am interested in how Sony PS3 protection works, how it was broken by Fail0verflow, the further contributions of George Hotz, and the steps needed to make the PS3 able to run Linux once again. Since I am actually a computer science professor, I am particularly interested in how this information can best be taught to others who desire to learn it. I do not believe there is anything improper, much less illegal, in teaching people computer science. - David S. Touretzky");
+		}
+		if (count == 800)
+		{
+			printf("Yo, it's Geohot; And for those that don't know; I'm getting sued by Sony; Let's take this out of the courtroom and into the streets; I'm a beast, at the least, you'll face me in the northeast; Get my ire up, light my fire; I'll go harder than Eminem went at Mariah; Call me a liar; Pound me in the ass with no lube, chafing; You're fucking with the dude who got the keys to your safe; And those that can't do bring suits; Cry to your Uncle Sam to settle disputes; Thought you'd tackle this with a little more tact; But then again fudgepackers, I don't know Jack; I shed a tear everytime I think of Lik Sang; But shit man, they're a corporation; And I'm a personification of freedom for all; You fill dockets, like thats a concept foreign to y'all; While lawyers muddy water and TROs stall; Out of business is jail for me; And you're suing me civilly; Exhibit this in the courtroom; Go on, do it, I dare you");
+		}
+		if (count == 880)
+		{
+			printf("IT IS HEREBY ORDERED AND ADJUDGED by consent of the Parties that Hotz... shall be and hereby are permanently enjoined and restrained from: engaging in any unauthorized access to any SONY PRODUCT under the law, engaging in any unauthorized access to any SONY PRODUCT under the terms of any SCEA or SCEA AFFILIATES' license agreement or terms of use applicable to that SONY PRODUCT, including reverse engineering, decompiling, or disassembling any portion of the Sony Product, using any tools to bypass, disable, or circumvent any encryption, security, or authentication mechanism in the Sony Product, using any hardware or softare to cause the Sony Product to accept or use unauthorized, illegal or pirated softare or hardware; and exploiting any Sony Product to design, develop, update or distribute unauthorized softare or hardware for use with the Sony Product... - Susan Illston");
+		}
+		if (count == 960)
+		{
+			printf("Plaintiffs Derrick Alba, Jason Baker, James Girardi, Jonathan Huber, and Anthony Ventura, hereby move for preliminary approval of the Stipulation of Class Action Settlement and Release; they reached with Defendant Sony Computer Entertainment America LLC, currently known as Sony Interactive Entertainment America LLC after nearly six years of litigation and many months of settlement negotiations. The action arose out of SCEA’s marketing and sale of the Sony PlayStation®3 (“PS3”). Plaintiffs allege that Defendant marketed the PS3 as having the ability to run an operating system (such as Linux) in addition to the native game operating system (henceforth referred to as “Other OS”), and that SCEA subsequently removed the “Other OS” functionality via firmware update 3.21, harming PS3 purchasers.  About 10 million consumers nationwide are eligible to submit a Claim Form to receive a cash payment in the amount of either $55.00 or $9.00. - Yvonne Gonzalez Rogers");
+		}
 
 		count += 16;
 		sleep(1);
-		// 16 bits, compare two shorts while the controller polls, oh and write this text to the framebuffer! If you diverge, auto fail. 
-		// if you succeed, print a success message and crash the program. From here, get a dump of the VRAM and then use that dump as the way to decrypt some value
 	}
 
-	printf("nice job, you did it! when i look at myself (i'm an rsx), i look at the output in my texture buffer; use it to reach the end :)");
-	sleep(1);
+	printf("Nice job, you did it! Do this on the server now to get the real flag. \n");
+	while(1) {}
 
 	return 0;
 }
